@@ -75,12 +75,13 @@ p { margin: 0; }
 /* ---------- header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 10;
+  background: var(--bg);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid var(--line);
 }
 .site-header .wrap { display: flex; align-items: center; gap: 16px; height: 68px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 750; font-size: 18px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 750; font-size: 18px; white-space: nowrap; }
 .brand-mark {
   width: 34px; height: 34px; border-radius: 10px; flex: none;
   background: linear-gradient(135deg, #0a4a3e, #1c8a72);
@@ -90,13 +91,34 @@ p { margin: 0; }
 .nav { display: flex; align-items: center; gap: 6px; margin-left: auto; }
 .nav a.link { color: var(--ink-2); text-decoration: none; font-weight: 550; font-size: 15px; padding: 8px 12px; border-radius: 999px; }
 .nav a.link:hover { color: var(--ink); background: var(--surface-2); }
-@media (max-width: 720px) { .nav a.link { display: none; } }
+.header-cta { flex: none; }
+section[id] { scroll-margin-top: 76px; }
+/* Phones: the links move to a compact second row under the brand and Download button. */
+@media (max-width: 720px) {
+  .site-header { position: static; }
+  .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 10px; padding-bottom: 6px; row-gap: 4px; justify-content: space-between; }
+  .nav { order: 3; width: 100%; margin-left: -10px; gap: 2px; }
+  .nav a.link { font-size: 14.5px; padding: 6px 10px; }
+  section[id] { scroll-margin-top: 0; }
+}
+/* Very small phones (320–380px): tighten the header so everything fits on one line. */
+@media (max-width: 380px) {
+  .wrap { padding: 0 16px; }
+  .site-header .wrap { gap: 8px; }
+  .brand { gap: 8px; font-size: 16px; }
+  .brand-mark { width: 30px; height: 30px; border-radius: 9px; }
+  .brand-mark svg { width: 18px; height: 18px; }
+  .btn-small { min-height: 38px; padding: 0 12px; font-size: 14px; gap: 6px; }
+  .btn-small svg { width: 18px; height: 18px; }
+  .nav { margin-left: -8px; }
+  .nav a.link { padding: 6px 8px; }
+}
 
 /* ---------- hero ---------- */
 .hero { padding: 72px 0 40px; overflow: hidden; }
 .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
 .eyebrow {
-  display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  display: inline-block;
   font-size: 14px; font-weight: 650; color: var(--brand);
   background: var(--brand-soft); padding: 6px 12px; border-radius: 999px;
 }
@@ -174,7 +196,12 @@ section { padding: 72px 0; }
 .price li { display: flex; gap: 10px; }
 .price li svg { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--brand); }
 .price .btn { margin-top: auto; }
-.fine { margin-top: 18px; color: var(--ink-2); font-size: 15px; }
+.trial-note {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+  font-weight: 650; font-size: 15.5px; color: var(--ink);
+}
+.trial-note svg { width: 18px; height: 18px; flex: none; color: var(--gold); }
+.fine { margin-top: 10px; color: var(--ink-2); font-size: 15px; }
 
 /* ---------- install steps ---------- */
 .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -222,7 +249,7 @@ section { padding: 72px 0; }
 @media (max-width: 600px) { .article { padding: 22px; } }
 
 /* ---------- simple centered pages (payment) ---------- */
-.center-page { min-height: calc(100vh - 68px - 160px); display: grid; place-items: center; padding: 56px 0; }
+.center-page { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 56px 0; }
 .center-card { max-width: 520px; width: 100%; text-align: center; padding: 40px 28px; }
 .center-card h1 { font-size: 30px; margin: 18px 0 10px; }
 .center-card p { color: var(--ink-2); }
@@ -243,4 +270,10 @@ section { padding: 72px 0; }
 .site-footer .brand { margin-bottom: 8px; }
 
 section.tight { padding-top: 0; }
+/* Small phones: long button labels may wrap instead of pushing the page wider. */
+@media (max-width: 400px) {
+  .cta-row .btn, .page-actions .btn, .center-card .btn { white-space: normal; text-align: center; }
+  .cta-band .card { padding: 40px 18px; }
+  .center-card { padding: 32px 20px; }
+}
 .article ul + p { margin-top: 14px; }

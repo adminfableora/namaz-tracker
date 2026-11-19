@@ -6,8 +6,16 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://sdk.cashfree.com; connect-src https://*.cashfree.com; frame-src https://*.cashfree.com; img-src 'self' data: https://*.cashfree.com; style-src 'self' 'unsafe-inline'; base-uri 'none'; form-action https://*.cashfree.com">
 <meta name="referrer" content="no-referrer">
 <meta name="description" content="Secure payment for Namaz Tracker Pro.">
-<meta name="theme-color" content="#0f6e5c">
+<meta name="theme-color" content="#0f6e5c" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1412" media="(prefers-color-scheme: dark)">
 <title>Payment · Namaz Tracker</title>
+<link rel="canonical" href="https://adminfableora.github.io/namaz-tracker/pay.html">
+<meta property="og:title" content="Payment · Namaz Tracker">
+<meta property="og:description" content="Secure payment for Namaz Tracker Pro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adminfableora.github.io/namaz-tracker/pay.html">
+<meta property="og:image" content="https://adminfableora.github.io/namaz-tracker/img/today.webp">
+<meta property="og:site_name" content="Namaz Tracker">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +25,7 @@
 <div class="wrap center-page"><div class="card center-card">
 <div class="spinner" aria-hidden="true"></div>
 <h1>Opening secure payment…</h1>
-<p id="msg">Please wait. You will be taken to Cashfree's secure payment page.</p>
+<p id="msg" role="status" aria-live="polite">Please wait. You will be taken to Cashfree's secure payment page.</p>
 </div></div>
 </main>
 
