@@ -1,4 +1,4 @@
-/* Namaz Tracker website — one stylesheet for every page. */
+/* My Islam Daily website — one stylesheet for every page. */
 :root {
   --bg: #f6f3ec;
   --surface: #ffffff;
@@ -98,11 +98,9 @@ p { margin: 0; }
 .site-header .wrap { display: flex; align-items: center; gap: 16px; height: 68px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 750; font-size: 18px; white-space: nowrap; }
 .brand-mark {
-  width: 34px; height: 34px; border-radius: 10px; flex: none;
-  background: linear-gradient(135deg, #0a4a3e, #1c8a72);
-  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 9px; flex: none; display: block;
+  box-shadow: 0 1px 2px rgba(23, 32, 28, .12);
 }
-.brand-mark svg { width: 20px; height: 20px; }
 .nav { display: flex; align-items: center; gap: 6px; margin-left: auto; }
 .nav a.link { color: var(--ink-2); text-decoration: none; font-weight: 550; font-size: 15px; padding: 8px 12px; border-radius: 999px; }
 .nav a.link:hover { color: var(--ink); background: var(--surface-2); }
@@ -122,7 +120,6 @@ section[id] { scroll-margin-top: 76px; }
   .site-header .wrap { gap: 8px; }
   .brand { gap: 8px; font-size: 16px; }
   .brand-mark { width: 30px; height: 30px; border-radius: 9px; }
-  .brand-mark svg { width: 18px; height: 18px; }
   .btn-small { min-height: 38px; padding: 0 12px; font-size: 14px; gap: 6px; }
   .btn-small svg { width: 18px; height: 18px; }
   .nav { margin-left: -8px; }
